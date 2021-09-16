@@ -13,9 +13,9 @@ public class testIntlist {
         }
         System.out.println(A.first);
 */
-        IntList C = IntList.of(1,2,3,4);
-        IntList D = IntList.of(9,111);
-        IntList E = IntList.catenate(C,D);
+        IntList C = IntList.of(1);
+        IntList D = IntList.of(111);
+        IntList E = IntList.dcatenate(C,D);
 
         while (E.rest!= null){
             System.out.println(E.first);
