@@ -4,7 +4,7 @@ public class ArrayList<T> {
     public int size; /** Number of meaningful elements*/
     public int nextfirst;
     public int nextlast;
-    private int bound = 100;
+    private int bound = 10;
     /**these two elements are essential to keep the running time of add and remove to be constant*/
     public int used = 0;
 
@@ -40,19 +40,20 @@ public class ArrayList<T> {
         T[] duplicate = (T[]) new Object[2*size];
         System.arraycopy(array, nextfirst+1, duplicate, nextfirst + size/2, size);
         array = duplicate;
-        size = size*2;
+
         nextfirst = nextfirst + size/2 -1;
-        nextlast = nextfirst + size;
+        nextlast = nextfirst + size+1;
+        size = size*2;
     };
 
     public void sizedown(){
         T [] duplicate = (T[]) new Object[size/2];
-        System.arraycopy(array,nextfirst+1,duplicate,size/4,size);
+        System.arraycopy(array,nextfirst+1,duplicate,(size/2 -used)/2,used);
         array = duplicate;
-        size = size/2;
-        nextfirst = size/4-1;
-        nextlast = size/4 + size;
 
+        nextfirst = -1;
+        nextlast = used;
+        size = size/2;
     }
 
     public int is_full(){
@@ -89,7 +90,7 @@ public class ArrayList<T> {
         nextfirst +=1;
         used -=1;
 
-        if ( (size >=200) && (used < size/2)){
+        if ( (size >=2*bound) && (used < size/2)){
             this.sizedown();
         }
         return p;
@@ -105,7 +106,7 @@ public class ArrayList<T> {
         nextlast -=1;
         used -=1;
 
-        if ((size > 200) && (used < size/2)){
+        if ((size > 2*bound) && (used < size/2)){
             this.sizedown();
         }
         return p;

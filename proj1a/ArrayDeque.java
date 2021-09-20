@@ -46,14 +46,34 @@ public class ArrayDeque<T> {
     }
 
 
-    /**public static void main(String[] args){
+    public static void main(String[] args){
         ArrayDeque<String> A = new ArrayDeque();
-        A.addLast("third");
-        /**A.addFirst("Second");
-        A.addFirst("First");
-        A.addFirst("zero");
+
+        A.addLast("10");
+        A.addFirst("9");
+        A.addFirst("8");
+        A.addFirst("7");
+        A.addFirst("6");
+
+        A.addLast("11");
+        A.addFirst("5");
+        A.addFirst("4");
+        A.addFirst("3");
+
+        A.addLast("12");
+        A.addFirst("2");
+        A.addFirst("1");
+        A.addFirst("0");
+
         A.removeFirst();
+        A.removeFirst();
+        A.removeFirst();
+        A.removeFirst();
+        A.removeFirst();
+
+        A.removeLast();
+        A.removeLast();
         A.removeLast();
         A.printDeque();
-    }*/
+    }
 }
