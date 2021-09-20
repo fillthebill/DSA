@@ -4,7 +4,7 @@ public class ArrayList<T> {
     public int size; /** Number of meaningful elements*/
     public int nextfirst;
     public int nextlast;
-    private int bound = 4;
+    private int bound = 100;
     /**these two elements are essential to keep the running time of add and remove to be constant*/
     public int used = 0;
 
