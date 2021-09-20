@@ -2,15 +2,13 @@ public class LinkedListDeque <T>{
 
 /**data include nothing but a Linked List as written in List.java */
 
-    public List<T> ListinDeque;
-
-    public LinkedListDeque ( T init){
+    private List<T> ListinDeque;
+    /**public LinkedListDeque ( T init){
         ListinDeque = new List<T>(init);
-    }
+    }*/
     public LinkedListDeque(){
         ListinDeque = new List();
     }
-
 
     public void addFirst (T item){
         ListinDeque.addFirst(item);
@@ -21,7 +19,9 @@ public class LinkedListDeque <T>{
     }
 
     public boolean isEmpty(){
-        if (ListinDeque.size() == 0) { return true;}
+        if (ListinDeque.size() == 0) {
+            return true;
+        }
         return false;
     }
 
@@ -41,16 +41,25 @@ public class LinkedListDeque <T>{
     }
 
     public T removeFirst(){
+        if (ListinDeque.size() == 0){
+            return null;
+        }
         T p = ListinDeque.removeFirst();
         return p;
     }
 
     public T removeLast(){
+        if (ListinDeque.size() == 0){
+            return null;
+        }
         T p = ListinDeque.removeLast();
         return p;
     }
 
     public T get(int index){
+        if ((index > ListinDeque.size())||(index <0)){
+            return null;
+        }
         T p = ListinDeque.get(index);
         return p;
     }
@@ -65,6 +74,10 @@ public class LinkedListDeque <T>{
 
     public T getRecursive(int index){
     /** get the desired element without changing the LinkedList*/
+        if ((index > ListinDeque.size())||(index <0)){
+            return null;
+        }
+
         if (index == 0){
             T m = ListinDeque.getFirst();
 
@@ -81,8 +94,8 @@ public class LinkedListDeque <T>{
     }
 
 
-    public static void main (String [] args){
-    /**LinkedListDeque<String> l = new LinkedListDeque<>("hhhh") ;*/
+    /**public static void main (String [] args){
+     LinkedListDeque<String> l = new LinkedListDeque<>("hhhh") ;
     LinkedListDeque<String> l = new LinkedListDeque<>();
     l.addFirst("hhh");
     l.addLast("hhhhhhh");
@@ -91,7 +104,7 @@ public class LinkedListDeque <T>{
     System.out.println(l.size());
 
     l.printDeque();
-    }
+    }*/
 }
 
 

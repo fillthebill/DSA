@@ -1,14 +1,14 @@
 public class ArrayDeque<T> {
 
-    public ArrayList<T> alist;
+    private ArrayList<T> alist;
 
     public ArrayDeque(){
         alist = new ArrayList();
     }
 
-    public ArrayDeque ( int length){
+    /**public ArrayDeque ( int length){
         alist = new ArrayList<T>(length);
-    }
+    }*/
 
     public void addFirst (T item){
         alist.addFirst(item);
@@ -26,7 +26,7 @@ public class ArrayDeque<T> {
     }
 
     public int size(){
-        return alist.size;
+        return alist.used;
     }
 
     public void printDeque(){
@@ -46,15 +46,14 @@ public class ArrayDeque<T> {
     }
 
 
-
     public static void main(String[] args){
-        ArrayDeque<String> A = new ArrayDeque(80);
+        ArrayDeque<String> A = new ArrayDeque();
         A.addLast("third");
-        A.addFirst("Second");
+        /**A.addFirst("Second");
         A.addFirst("First");
         A.addFirst("zero");
         A.removeFirst();
-        A.removeLast();
+        A.removeLast();*/
         A.printDeque();
     }
 }

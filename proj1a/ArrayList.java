@@ -4,6 +4,7 @@ public class ArrayList<T> {
     public int size; /** Number of meaningful elements*/
     public int nextfirst;
     public int nextlast;
+    private int bound = 4;
     /**these two elements are essential to keep the running time of add and remove to be constant*/
     public int used = 0;
 
@@ -12,12 +13,12 @@ public class ArrayList<T> {
      * index for the first item, index for the last item:"first + used" */
     public ArrayList( int length){
         int bigger;
-        if (length < 100){
-            bigger = 100;
+        if (length < bound){
+            bigger = bound;
         }
         else bigger = length;
 
-        array = (T [])new Object[bigger];
+        array = (T []) new Object[bigger];
         nextfirst = bigger/2;
         nextlast = nextfirst +1;
         size = bigger;
@@ -25,22 +26,34 @@ public class ArrayList<T> {
 
     /**initiate an empty list, such that when excution add follows, a new array of T would be constructed.*/
     public ArrayList(){
-        array = (T[])new Object[100];
-        size = 100;
-        nextfirst = 100/2;
+        array = (T[]) new Object[bound];
+        size = bound;
+        nextfirst = bound/2;
         nextlast = nextfirst +1;
 
 
     }
-    public void resize(){
 
-        T[] duplicate = (T[])new Object[2 * size];
+    /** resize should be used to both resize up and down.*/
+    public void resizeup(){
+
+        T[] duplicate = (T[]) new Object[2*size];
         System.arraycopy(array, nextfirst+1, duplicate, nextfirst + size/2, size);
         array = duplicate;
         size = size*2;
         nextfirst = nextfirst + size/2 -1;
         nextlast = nextfirst + size;
     };
+
+    public void sizedown(){
+        T [] duplicate = (T[]) new Object[size/2];
+        System.arraycopy(array,nextfirst+1,duplicate,size/4,size);
+        array = duplicate;
+        size = size/2;
+        nextfirst = size/4-1;
+        nextlast = size/4 + size;
+
+    }
 
     public int is_full(){
         if (used == size){
@@ -51,7 +64,7 @@ public class ArrayList<T> {
 
     public void addFirst( T item) {
         if ( (this.is_full() == 1)|| (nextfirst == -1) ){
-            this.resize();
+            this.resizeup();
         }
         array[nextfirst] = item;
         used +=1;
@@ -60,7 +73,7 @@ public class ArrayList<T> {
 
     public void addLast(T item){
         if((this.is_full() == 1)||(nextlast == size)){
-            this.resize();
+            this.resizeup();
         }
         array[nextlast] = item;
         nextlast +=1;
@@ -68,26 +81,43 @@ public class ArrayList<T> {
     }
 
     public T removeFirst(){
-
+        if( used == 0){
+            return null;
+        }
         T p = array[nextfirst+1];
         array[nextfirst + 1] = null;
         nextfirst +=1;
         used -=1;
 
+        if ( (size >=200) && (used < size/2)){
+            this.sizedown();
+        }
         return p;
     }
 
     public T removeLast(){
 
+        if ( used == 0){
+            return null;
+        }
         T p = array[nextlast-1];
         array[nextlast-1] = null;
         nextlast -=1;
         used -=1;
 
+        if ((size > 200) && (used < size/2)){
+            this.sizedown();
+        }
         return p;
     }
 
     public T get(int index){
+        if (index <0){
+            return null;
+        }
+        if (index >=used){
+            return null;
+        }
         return array[index + nextfirst +1];
     }
 
