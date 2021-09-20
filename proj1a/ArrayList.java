@@ -42,7 +42,7 @@ public class ArrayList<T> {
         array = duplicate;
 
         nextfirst = nextfirst + size/2 -1;
-        nextlast = nextfirst + size+1;
+        nextlast = nextfirst + used+1;
         size = size*2;
     };
 

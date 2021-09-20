@@ -46,7 +46,7 @@ public class ArrayDeque<T> {
     }
 
 
-    /**public static void main(String[] args){
+   /** public static void main(String[] args){
         ArrayDeque<String> A = new ArrayDeque();
 
         A.addLast("10");
@@ -64,6 +64,8 @@ public class ArrayDeque<T> {
         A.addFirst("2");
         A.addFirst("1");
         A.addFirst("0");
+        A.addLast("13");
+        System.out.println(A.size());
 
         A.removeFirst();
         A.removeFirst();
