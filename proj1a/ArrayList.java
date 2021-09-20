@@ -38,7 +38,7 @@ public class ArrayList<T> {
     public void resizeup(){
 
         T[] duplicate = (T[]) new Object[2*size];
-        System.arraycopy(array, nextfirst+1, duplicate, nextfirst + size/2, size);
+        System.arraycopy(array, nextfirst+1, duplicate, nextfirst + size/2, used);
         array = duplicate;
 
         nextfirst = nextfirst + size/2 -1;
@@ -48,7 +48,7 @@ public class ArrayList<T> {
 
     public void sizedown(){
         T [] duplicate = (T[]) new Object[size/2];
-        System.arraycopy(array,nextfirst+1,duplicate,(size/2 -used)/2,used);
+        System.arraycopy(array,nextfirst+1,duplicate,0,used);
         array = duplicate;
 
         nextfirst = -1;

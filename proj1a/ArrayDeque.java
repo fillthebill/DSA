@@ -46,10 +46,28 @@ public class ArrayDeque<T> {
     }
 
 
-   /** public static void main(String[] args){
+    public static void main(String[] args){
         ArrayDeque<String> A = new ArrayDeque();
 
         A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+        A.addLast("10");
+
         A.addFirst("9");
         A.addFirst("8");
         A.addFirst("7");
@@ -60,11 +78,29 @@ public class ArrayDeque<T> {
         A.addFirst("4");
         A.addFirst("3");
 
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+
         A.addLast("12");
         A.addFirst("2");
         A.addFirst("1");
         A.addFirst("0");
         A.addLast("13");
+        A.addLast("14");
+        A.addLast("15");
+        A.addLast("16");
+        A.addLast("17");
+        A.addLast("18");
+        A.addLast("19");
+        A.addLast("20");
+        A.addLast("21");
         System.out.println(A.size());
 
         A.removeFirst();
@@ -73,9 +109,23 @@ public class ArrayDeque<T> {
         A.removeFirst();
         A.removeFirst();
 
+        ;
         A.removeLast();
         A.removeLast();
         A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+        A.removeLast();
+
         A.printDeque();
-    }*/
+    }
 }
