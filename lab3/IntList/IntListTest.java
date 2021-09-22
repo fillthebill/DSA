@@ -9,6 +9,17 @@ public class IntListTest {
      * method. The main point of this is to convince you that
      * assertEquals knows how to handle IntLists just fine.
      */
+    @Test
+    public void testreverse() {
+        IntList in = IntList.of(1, 2, 3, 4, 5, 6, 7, 8);
+        IntList save = IntList.of(1, 2, 3, 4, 5, 6, 7, 8);
+
+        IntList outexpected = IntList.of(8, 7, 6, 5, 4, 3, 2, 1);
+        assertEquals(outexpected, IntList.reverse(in));
+
+        assertNotEquals(save, in);
+        assertEquals(null, IntList.reverse(null));
+    }
 
     @Test
     public void testList() {
