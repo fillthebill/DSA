@@ -20,7 +20,17 @@ public class TestPalindrome {
 
     @Test
     public void testisPalindrome() {
-        assertTrue(palindrome.isPalindrome("ba&&&&&&&&&&&&&&ab"));
-        assertFalse(palindrome.isPalindrome("aab"));
+        /**assertTrue(palindrome.isPalindrome("baab"));
+        assertFalse(palindrome.isPalindrome("aA"));
+        assertFalse(palindrome.isPalindrome("Baab"));
+        assertTrue(palindrome.isPalindrome("&"));*/
+        assertFalse(palindrome.isPalindrome("aaabBaaa"));
+        assertFalse(palindrome.isPalindrome("a(&()&)a"));
+        assertTrue(palindrome.isPalindrome("a(&((&(a"));
+        assertTrue(palindrome.isPalindrome("<><||<><"));
+
+
+
+
     }
 }

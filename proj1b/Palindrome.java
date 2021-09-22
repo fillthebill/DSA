@@ -17,14 +17,23 @@ public class Palindrome {
         char l = temp.removeLast();
 
         if (cc.equalChars(f,l) == false) {
+            System.out.println("f == " + f);
+            System.out.println("l == "+ l);
             return false;
+
         }
         if ( (temp.size() < 2) && (cc.equalChars(f,l) == true) ) {
+            System.out.println("f == " + f);
+            System.out.println("l == "+ l);
             return true;
+
         }
 
         int flag = 0;
         while(temp.size() >1) {
+            temp.printDeque();
+            System.out.println("f == " + f);
+            System.out.println("l == "+ l);
             if ( cc.equalChars(f,l) == true) {
                 f = temp.removeFirst();
                 l = temp.removeLast();
@@ -38,14 +47,19 @@ public class Palindrome {
         if (flag ==1) {
             return false;
         }
+
+        else if (cc.equalChars(f,l) == true) {
+            return true;
+        }
+
         else {
-            return  true;
+            return  false;
         }
 
     }
 
     public boolean isPalindrome(String word) {
-        if ( word.length() <2){
+        if ( word.length() <2) {
             return true;
         }
 
@@ -57,11 +71,14 @@ public class Palindrome {
             return false;
         }
 
+        if (temp.size() <=1) {
+            return true;
+        }
         int flag = 0;
 
-        while(temp.size() >=2){
+        while(temp.size() >=2) {
 
-            if ( f ==l ){
+            if ( f ==l ) {
                 f = temp.removeFirst();
                 l = temp.removeLast();
             }
@@ -70,7 +87,11 @@ public class Palindrome {
                 break;
             }
         }
+
         if (flag == 1) {
+            return false;
+        }
+        if (f != l) {
             return false;
         }
         else {
