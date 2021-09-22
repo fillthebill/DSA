@@ -16,12 +16,15 @@ public class Palindrome {
         char f = temp.removeFirst();
         char l = temp.removeLast();
 
-        if ( (word.length() == 2) && (cc.equalChars(f,l) == true) ) {
+        if (cc.equalChars(f,l) == false) {
+            return false;
+        }
+        if ( (temp.size() < 2) && (cc.equalChars(f,l) == true) ) {
             return true;
         }
 
         int flag = 0;
-        while(word.length() >2) {
+        while(temp.size() >1) {
             if ( cc.equalChars(f,l) == true) {
                 f = temp.removeFirst();
                 l = temp.removeLast();

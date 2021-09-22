@@ -12,12 +12,12 @@ public class TestOffByN {
     /** Your tests go here.
      Uncomment this class once you've created your CharacterComparator interface and OffByOne class. */
     @Test
-    public void TestOffByOne() {
-        assertTrue( palindrome.isPalindrome("tecr",offBy5));
+    public void TestOffByN() {
+        assertTrue( palindrome.isPalindrome("tejo",offBy5));
         assertFalse( palindrome.isPalindrome("tech",offBy5));
-        assertTrue( palindrome.isPalindrome("&&%",offBy5));
-        assertTrue( palindrome.isPalindrome("&%",offBy5));
-        assertTrue( palindrome.isPalindrome("*",offBy5));
+        assertTrue( palindrome.isPalindrome("ej",offBy5));
+        assertTrue( palindrome.isPalindrome("je",offBy5));
+        assertTrue( palindrome.isPalindrome("j",offBy5));
     }
 }
 
